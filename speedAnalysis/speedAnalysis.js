@@ -28,6 +28,8 @@ function endTest(){
     //Split the text using regex to count words correctly
     var typedWords = userTypedText.split(/\s+/).filter(function(word){return word !== "";}).length;
 
+    var totalLength = userTypedText.length;
+
     var wpm = 0; //default value
 
     if (timeElapsed!== 0 && !isNaN(typedWords)){
@@ -37,6 +39,7 @@ function endTest(){
     //Display the results
     var outputDiv = document.getElementById("output");
     outputDiv.innerHTML = "<h2>Typing Test Results: </h2>" +
+    "<p>Total length: " + totalLength + "</p>" +
     "<p>Words Typed: " + typedWords + "</p>" +
     "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
     "<p>Words per Minute (WPM): " + wpm + "</p>";
